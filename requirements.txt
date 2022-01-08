@@ -1,0 +1,5 @@
+numpy
+pandas
+PyQt5
+pyarrow
+pyinstaller
