@@ -65,8 +65,8 @@ jobs:
         name: mayuan-linux-amd64.zip
         path: dist/linux
 
-  build-MacOS-universal2:
-    runs-on: macos-11
+  build-MacOS-x64:
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -82,13 +82,13 @@ jobs:
           pip install -r requirements.txt
     
       - name: Pyinstaller
-        run: pyinstaller --clean -y --dist ./dist/macos-arm --workpath /tmp build_macos.spec
+        run: pyinstaller --clean -y --dist ./dist/macos_amd64 --workpath /tmp build_windows.spec
 
       - name: Copy Datasets
-        run: cp -r datasets dist/macos-arm
+        run: cp -r datasets dist/macos_amd64
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: mayuan-MacOS-arm64.zip
-          path: dist/macos-arm
+          name: mayuan-MacOS-amd6464.zip
+          path: dist/macos_amd64
