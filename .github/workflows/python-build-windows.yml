@@ -19,8 +19,9 @@ jobs:
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
         path: ./
+        spec: build_windows.spec
 
     - uses: actions/upload-artifact@v2
       with:
         name: name-of-artifact
-        path: ./dist/windows
+        path: dist/windows
