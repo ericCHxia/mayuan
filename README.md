@@ -14,4 +14,9 @@
 ## Q&A
 
 Q：为啥软件这么大？
+
 A：因为使用numpy和pandas的库，太好用了不想换/(ㄒoㄒ)/~~
+
+Q：为啥没有Macos M1的版本
+
+A：因为Github action的Python暂不支持M1
