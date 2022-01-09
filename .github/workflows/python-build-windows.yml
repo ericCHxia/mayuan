@@ -1,16 +1,14 @@
-
 name: Package Application with Pyinstaller
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build-windows:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -24,8 +22,40 @@ jobs:
     - name: Copy Datasets
       run: cp -r datasets dist/windows
       
-    - name: Upload Windows
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: mayuan-windows-amd64.zip
         path: dist/windows
+
+  build-Linux:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+    
+    - name: Install Dependence
+      run: |
+        sudo apt update
+        sudo apt install -y libxcb-xinerama0
+        pip install --upgrade pip wheel setuptools
+        pip install -r requirements.txt
+    
+    - name: Pyinstaller
+      run: pyinstaller --clean -y --dist ./dist/linux --workpath /tmp $SPEC_FILE
+
+    - name: Copy Datasets
+      run: cp -r datasets dist/linux
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mayuan-linux-amd64.zip
+        path: dist/linux
