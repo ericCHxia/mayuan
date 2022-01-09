@@ -1,5 +1,5 @@
 
-name: Package Application with Pyinstaller - Windows
+name: Package Application with Pyinstaller
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-windows:
 
     runs-on: ubuntu-latest
 
@@ -21,23 +21,11 @@ jobs:
         path: ./
         spec: build_windows.spec
         
-    - name: Package Application Linux
-      uses: JackMcKew/pyinstaller-action-linux@main
-      with:
-        path: ./
-        spec: build_windows.spec
-        
     - name: Copy Datasets
-      run: cp -r datasets dist/windows && cp -r datasets dist/linux
+      run: cp -r datasets dist/windows
       
     - name: Upload Windows
       uses: actions/upload-artifact@v2
       with:
         name: mayuan-windows-amd64.zip
         path: dist/windows
-    
-    - name: Upload Linux
-      uses: actions/upload-artifact@v2
-      with:
-        name: mayuan-linux-amd64.zip
-        path: dist/linux
