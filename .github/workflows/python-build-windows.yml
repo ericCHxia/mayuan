@@ -49,7 +49,7 @@ jobs:
         pip install -r requirements.txt
     
     - name: Pyinstaller
-      run: pyinstaller --clean -y --dist ./dist/linux --workpath /tmp $SPEC_FILE
+      run: pyinstaller --clean -y --dist ./dist/linux --workpath /tmp build_windows.spec
 
     - name: Copy Datasets
       run: cp -r datasets dist/linux
