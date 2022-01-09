@@ -15,14 +15,29 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Package Application
+    - name: Package Application Windows
       uses: JackMcKew/pyinstaller-action-windows@main
       with:
         path: ./
         spec: build_windows.spec
+        
+    - name: Package Application Linux
+      uses: JackMcKew/pyinstaller-action-linux@main
+      with:
+        path: ./
+        spec: build_windows.spec
+        
     - name: Copy Datasets
-      run: cp -r datasets dist/windows
-    - uses: actions/upload-artifact@v2
+      run: cp -r datasets dist/windows && cp -r datasets dist/linux
+      
+    - name: Upload Windows
+      uses: actions/upload-artifact@v2
       with:
         name: mayuan-windows-amd64.zip
         path: dist/windows
+    
+    - name: Upload Linux
+      uses: actions/upload-artifact@v2
+      with:
+        name: mayuan-linux-amd64.zip
+        path: dist/linux
