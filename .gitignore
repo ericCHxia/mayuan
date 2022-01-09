@@ -33,7 +33,7 @@ MANIFEST
 *.manifest
 *.spec
 !build_windows.spec
-!build_macos_arm.spec
+!build_macos.spec
 
 # Installer logs
 pip-log.txt
