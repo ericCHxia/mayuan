@@ -20,8 +20,9 @@ jobs:
       with:
         path: ./
         spec: build_windows.spec
-
+    - name: Copy Datasets
+      run: cp -r datasets dist/windows
     - uses: actions/upload-artifact@v2
       with:
-        name: name-of-artifact
+        name: mayuan-windows-amd64.zip
         path: dist/windows
