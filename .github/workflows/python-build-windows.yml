@@ -1,14 +1,9 @@
 name: Package Application with Pyinstaller
 
-# on:
-#   push:
-#     tags:
-#       - 'v*
 on:
   push:
-      branches: [ main ]
-  pull_request:
-      branches: [ main ]
+    tags:
+      - 'v*'
 
 jobs:
   build-windows-amd64:
@@ -30,7 +25,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: mayuan-windows-amd64.zip
+        name: mayuan_${{github.ref_name}}_windows_amd64.zip
         path: dist/windows
 
   build-Linux-amd64:
@@ -62,10 +57,10 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        name: mayuan-linux-amd64.zip
+        name: mayuan_${{github.ref_name}}_linux_amd64.zip
         path: dist/linux
 
-  build-MacOS-x64:
+  build-MacOS-amd64:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -90,5 +85,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: mayuan-MacOS-amd6464.zip
+          name: mayuan_${{github.ref_name}}_MacOS_amd64
           path: dist/macos_amd64
