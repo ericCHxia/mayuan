@@ -1,13 +1,14 @@
 import numpy as np
 from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QMainWindow, QDialog
+from PyQt5.QtWidgets import QMainWindow, QDialog, QFileDialog
 from mainui import Ui_MainWindow
 from exerror import Ui_Dialog as ExportErrorsUi
 import json
 import random
 import os
 from pandas import DataFrame, read_feather
+from util import export_data
 
 
 class MainWindow(QMainWindow):
@@ -230,6 +231,9 @@ class MainWindow(QMainWindow):
         dialog.show()
         if dialog.exec_():
             print("OK")
+            file_path, filetype = QFileDialog.getSaveFileName(self, "选取保存文件", filter='*.docx')
+            if file_path != '':
+                export_data(self.data, self.foot, file_path, dialog.ui.spinBox_count.value())
         else:
             print("Cancel")
 
