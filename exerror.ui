@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="spinBox_count">
      <property name="minimum">
       <number>1</number>
      </property>
