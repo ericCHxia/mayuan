@@ -123,8 +123,8 @@ class MainWindow(QMainWindow):
         self.clear_option()
 
         self.ui.label_content.setText(self.data[x]["context"])
-        for i, j in zip(self.options_label, self.data[x]["option"]):
-            i.setText(j)
+        for i, (label, option) in enumerate(zip(self.options_label, self.data[x]["option"])):
+            label.setText(chr(i+ord('A'))+" "+option)
 
         self.ui.label_answer.setVisible(False)
 

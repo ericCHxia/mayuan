@@ -127,27 +127,39 @@
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QRadioButton" name="radioButton_A">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>A</string>
+           <string/>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="checkBox_A">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>A</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -167,27 +179,39 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QRadioButton" name="radioButton_B">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>B</string>
+           <string/>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="checkBox_B">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>B</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -207,27 +231,39 @@
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QRadioButton" name="radioButton_C">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>C</string>
+           <string/>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="checkBox_C">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>C</string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -247,27 +283,39 @@
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QRadioButton" name="radioButton_D">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>D</string>
+           <string/>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QCheckBox" name="checkBox_D">
+          <property name="minimumSize">
+           <size>
+            <width>18</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>35</width>
+            <width>18</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="text">
-           <string>D</string>
+           <string/>
           </property>
          </widget>
         </item>
