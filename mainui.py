@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "刷题小助手"))
         self.label_content.setText(_translate("MainWindow", "TextLabel"))
         self.label_A.setText(_translate("MainWindow", "TextLabel"))
         self.label_B.setText(_translate("MainWindow", "TextLabel"))

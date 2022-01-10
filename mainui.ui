@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>刷题小助手</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">
