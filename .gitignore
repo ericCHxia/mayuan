@@ -32,7 +32,7 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-!build_windows.spec
+!build.spec
 !build_macos.spec
 
 # Installer logs
