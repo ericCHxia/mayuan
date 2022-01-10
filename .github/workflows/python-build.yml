@@ -1,0 +1,89 @@
+name: Package Application with Pyinstaller
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows-amd64:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Package Application Windows
+      uses: JackMcKew/pyinstaller-action-windows@main
+      with:
+        path: ./
+        spec: build_windows.spec
+        
+    - name: Copy Datasets
+      run: cp -r datasets dist/windows
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mayuan_${{github.ref_name}}_windows_amd64.zip
+        path: dist/windows
+
+  build-Linux-amd64:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+    
+    - name: Install Dependence
+      run: |
+        sudo apt update
+        sudo apt install -y libxcb-xinerama0
+        pip install --upgrade pip wheel setuptools
+        pip install -r requirements.txt
+    
+    - name: Pyinstaller
+      run: pyinstaller --clean -y --dist ./dist/linux --workpath /tmp build_windows.spec
+
+    - name: Copy Datasets
+      run: cp -r datasets dist/linux
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mayuan_${{github.ref_name}}_linux_amd64.zip
+        path: dist/linux
+
+  build-MacOS-amd64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+
+      - name: Install Dependence
+        run: |
+          pip install --upgrade pip wheel setuptools
+          pip install -r requirements.txt
+    
+      - name: Pyinstaller
+        run: pyinstaller --clean -y --dist ./dist/macos_amd64 --workpath /tmp build_windows.spec
+
+      - name: Copy Datasets
+        run: cp -r datasets dist/macos_amd64
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: mayuan_${{github.ref_name}}_MacOS_amd64
+          path: dist/macos_amd64
